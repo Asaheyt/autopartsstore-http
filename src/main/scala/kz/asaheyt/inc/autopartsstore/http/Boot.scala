@@ -26,7 +26,7 @@ object Boot extends App {
 
   val databaseActor: ActorSystem[AutoPartCommand] = ActorSystem(DatabaseActor(database), "database")
 
-  val httpRoutes = new AutoPartRoutes(databaseActor)
+  val httpRoutes = new HttpRoutes(databaseActor)
 
 
   runHttpServer() onComplete {
